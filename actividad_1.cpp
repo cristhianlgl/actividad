@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct dato {
+    int numero;
+    struct dato sig;
+}
+
 int main()
 {
-    printf("Programa para gestionar pilas con números enteros \n");
     int opcion = 0;
     while(opcion != 4)
     {
