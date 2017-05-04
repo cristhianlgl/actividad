@@ -5,7 +5,7 @@
 //el cual esta compuesto por el numero entero digitado y el un puntero al siguiente nodo
 struct Nodo {
     int numero; //numero sera la variable para ingresar el dato del numero entero digitado por el usuario
-    Nodo *sig;  //sig sera el puntero asi el siguiente nodo
+    Nodo *sig;  //sig sera el puntero para el siguiente nodo
 };
 
 //Funcion para insertar un nuevo nodo en la pila, el cual recibe un a cab (cabecera) que es la variable
@@ -36,11 +36,11 @@ void listarPila(Nodo *&cab){
     if (cab == NULL){
        printf("No hay numeros ingresados en la Pila \n\n");
     }else{
-        Nodo *aux = cab; //
+        Nodo *aux = cab; //se crea el auxiliar para recorrer la pila, este sera el ultimo nodo ingresado a la pila
         printf("Numeros en la Pila: \n\n");
-        while (aux != NULL){
-            printf("%d \n", aux->numero);
-            aux = aux->sig;
+        while (aux != NULL){ //recorre la pila mientras el nodo sea diferente de nulo
+            printf("%d \n", aux->numero); //imprime el numero
+            aux = aux->sig; //utliza el auxiliar para asiganar el siguiente nodo en la pila
         }
         printf("\n");
     }
@@ -48,11 +48,12 @@ void listarPila(Nodo *&cab){
 
 int main()
 {
-    int opcion = 0;
-    int numero = 0;
-    Nodo *cab = NULL;
+    int opcion = 0; //guarda la opcion del menu
+    int numero = 0; //guarda el numero entero a ingresar en la pila
+    Nodo *cab = NULL; //se crea un puntero de tipo nodo para la cabecera de la pila
     while(opcion != 4)
     {
+        //menu del programa y opciones
         system("cls");
         printf("        PROGRAMA PARA GESTIONAR PILAS CON NUMERO ENTEROS \n \n");
         printf("-----------------------MENU DE OPCIONES-------------------- \n \n");
@@ -63,26 +64,26 @@ int main()
         printf("Por favor digite una opcion: ");
         scanf("%d",&opcion);
 
-        switch(opcion)
+        switch(opcion) //dependiendo de la opcion hace
         {
             case 1:
                 system("cls");
                 printf("INSERTAR PILA \n\n");
                 printf("Digite el numero entero a ingresar a la Pila: ");
                 scanf("%d",&numero);
-                insertarPila(cab,numero);
+                insertarPila(cab,numero);  //llama la funcion
                 system("pause");
                 break;
             case 2:
                 system("cls");
                 printf("BORRAR PILA \n\n");
-                borrarPila(cab);
+                borrarPila(cab);  //llama la funcion
                 system("pause");
                 break;
             case 3:
                 system("cls");
                 printf("LISTAR PILA \n\n");
-                listarPila(cab);
+                listarPila(cab);  //llama la funcion
                 system("pause");
                 break;
             case 4:
